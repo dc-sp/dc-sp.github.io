@@ -1,26 +1,29 @@
 <!doctype html>
 <html lang="ru"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Стакан на странице входа — макеты</title>
+<title>Стакан на странице входа</title>
 <style>
-body{margin:0;padding:48px 20px;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+body{margin:0;padding:56px 20px;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   color:#222b46;background:#eef1f9}
-main{max-width:640px;margin:0 auto}
-h1{font-size:24px;margin:0 0 8px}
-p.sub{color:#5c6784;margin:0 0 32px}
-a.card{display:block;background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:16px;
-  text-decoration:none;color:inherit;transition:box-shadow .15s}
+main{max-width:520px;margin:0 auto}
+h1{font-size:22px;margin:0 0 28px;font-weight:600}
+a.card{display:block;background:#fff;border-radius:14px;padding:18px 22px;margin-bottom:12px;
+  text-decoration:none;color:inherit;font-size:18px;transition:box-shadow .15s}
 a.card:hover{box-shadow:0 4px 20px rgba(34,43,70,.12)}
-a.card b{display:block;font-size:18px;margin-bottom:4px}
-a.card span{color:#5c6784;font-size:15px}
+ul{color:#5c6784;margin:26px 0 0;padding-left:20px;font-size:15px}
+li{margin-bottom:8px}
 </style></head>
 <body><main>
 <h1>Стакан на странице входа</h1>
-<p class="sub">Макеты к задаче: собраны из боевой разметки и боевых стилей, данные — снимок прода.</p>
 
-<a class="card" href="bbpro/"><b>BB Pro — стакан выше формы входа</b>
-<span>Настройка включена. Стакан в том состоянии, в каком он на площадке сейчас: одна заявка на продажу.</span></a>
+<a class="card" href="bbpro/">BB Pro</a>
+<a class="card" href="bborg/">Битбанкер-орг</a>
 
-<a class="card" href="bborg/"><b>Битбанкер-орг — форма входа выше стакана</b>
-<span>Настройка выключена, порядок как сегодня. Своя пара USDT/RUBR и свой набор пар в списке.</span></a>
+<ul>
+<li>Открываются и на телефоне, и на компьютере.</li>
+<li>На компьютере стоит попробовать сузить окно.</li>
+<li>На BB Pro стакан над формой входа, позиций в нём сейчас мало.</li>
+<li>На Битбанкер-орге стакан под формой.</li>
+<li>Если ширины хватает, форма входа встаёт справа от стакана — на обеих страницах.</li>
+</ul>
 </main></body></html>

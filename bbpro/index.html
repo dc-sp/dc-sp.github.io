@@ -2571,30 +2571,13 @@
 </div>
 <script>
 /* Поведение фокуса:
-   1) при открытии курсор ставится в поле почты, но только на десктопе и без
-      прокрутки страницы — на телефоне фокус при загрузке клавиатуру не поднимает
-      (нет жеста пользователя) и только съедает первое впечатление от стакана;
+   1) при открытии курсор ставится в поле почты, когда форма первая на экране —
+      так же, как на странице входа сегодня;
    2) при переходе к форме фокус ставится СИНХРОННО внутри обработчика нажатия —
       только так iOS и Android открывают экранную клавиатуру: отложенный фокус
       не считается действием пользователя и клавиатуру не поднимает. */
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-
-/* is.mobile — перенос логики ~common/plugins/platform.ts */
-function bbIsMobile() {
-  var ua = (navigator.userAgent || '').toLowerCase();
-  var hasTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-  var pm = (/(ipad)/.exec(ua) || /(ipod)/.exec(ua) || /(windows phone)/.exec(ua) ||
-            /(iphone)/.exec(ua) || /(kindle)/.exec(ua) || /(silk)/.exec(ua) ||
-            /(android)/.exec(ua) || /(win)/.exec(ua) || /(mac)/.exec(ua) ||
-            /(linux)/.exec(ua) || /(cros)/.exec(ua) || [])[0] || '';
-  var known = /^(ipad|ipod|iphone|android|kindle|silk|windows phone)$/.test(pm);
-  var uad = navigator.userAgentData;
-  if (known || ua.indexOf('mobile') !== -1 || (uad && uad.mobile)) return true;
-  var isSafari = /safari/.test(ua) && !/chrome|crios|fxios|edg/.test(ua);
-  return hasTouch && pm === 'mac' && isSafari;   /* айпад в режиме «версия для ПК» */
-}
-var isMobile = bbIsMobile();
 
 var form  = document.getElementById('loginForm');
 var email = form.querySelector('input[name=email]');
@@ -2617,11 +2600,10 @@ hint.addEventListener('click', function (e) {
 });
 
 /* Курсор при открытии ставим, только когда форма видна сразу — то есть в двух
-   колонках. В одноколоночной раскладке она ниже первого экрана, и фокус утащил
-   бы страницу к ней мимо стакана (preventScroll спасает не во всех браузерах).
-   На телефоне не ставим ещё и потому, что занятое поле не даст всплыть
-   клавиатуре при последующем тапе по «Входу». */
-if (!isMobile && matchMedia('(min-width:1100px)').matches) {
+   колонках. В одноколоночной раскладке над ней стоит стакан, и фокус утащил бы
+   страницу вниз мимо него (preventScroll спасает не во всех браузерах); заодно
+   занятое поле не дало бы всплыть клавиатуре при нажатии на «Вход». */
+if (matchMedia('(min-width:1100px)').matches) {
   email.focus({ preventScroll: true });
 }
 </script></body></html>
