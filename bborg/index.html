@@ -241,6 +241,15 @@
 #bookCol{order:1}
 #loginForm{order:2}
 
+/* вертикальный ритм на телефоне: следующая ступень той же шкалы,
+   та, что и так включается с 640; правится только неавторизованная зона */
+@media (max-width:639px){
+  .main-auth .panel.section{
+    padding-top:calc(var(--spacing) * 8);
+    padding-bottom:calc(var(--spacing) * 8);
+  }
+}
+
 /* высота блока стакана: по содержимому, но не выше прежних 484 пикселей —
    пара «height + max-height:min-content» из разметки даёт разную высоту
    в Chrome и Firefox */
