@@ -118,6 +118,16 @@
   padding-inline:var(--g,32px);width:100%}
 .cols .w-\[610px\]{width:100% !important;max-width:610px}
 #jump,#reg-under,#reg-narrow{display:none}
+/* Высота блока стакана. В разметке она задана парой «height: 484px» и
+   «max-height: min-content»: Chrome вторую применяет и панель схлопывается по
+   содержимому, Firefox — нет, и под единственной заявкой висит пустота.
+   Тот же смысл, но одинаково во всех браузерах: высота по содержимому,
+   но не выше прежних 484 пикселей. */
+.md\:h-121.max-h-min{height:auto}
+@media (min-width:768px){
+  .md\:h-121.max-h-min{max-height:calc(var(--spacing) * 121)}
+}
+
 /* заголовки панелей одного уровня: меняем только кегль, отступы родные */
 .main-auth h1.h1{font-size:var(--text-h3);line-height:var(--text-h3--line-height)}
 @media (min-width:768px){
