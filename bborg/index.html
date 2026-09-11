@@ -250,13 +250,10 @@
   }
 }
 
-/* высота блока стакана: по содержимому, но не выше прежних 484 пикселей —
+/* высота блока стакана — по содержимому, как это видно в Chrome на бою:
    пара «height + max-height:min-content» из разметки даёт разную высоту
    в Chrome и Firefox */
-.cols .md\:h-121.max-h-min{height:auto}
-@media (min-width:768px){
-  .cols .md\:h-121.max-h-min{max-height:calc(var(--spacing) * 121)}
-}
+.cols .md\:h-121.max-h-min{height:auto;max-height:none}
 
 /* заголовки панелей одного уровня: меняем только кегль, отступы родные */
 .main-auth h1.h1{font-size:var(--text-h3);line-height:var(--text-h3--line-height)}
